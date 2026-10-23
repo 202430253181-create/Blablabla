@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar — BlablablaAbel</title>
+  <meta name="description" content="Entre ou crie sua conta no BlablablaAbel para sincronizar seu progresso, manter sua sequência e participar do ranking.">
+  <meta name="theme-color" content="#082653">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="auth">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="BlablablaAbel — página inicial">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span class="brand-name">Blablabla<span>Abel</span></span>
+      </a>
+      <nav class="main-nav" id="primary-nav" aria-label="Navegação principal">
+        <a href="index.html" data-nav="inicio">Início</a>
+        <a href="estudar.html" data-nav="conteudos">Conteúdos</a>
+        <a href="praticar.html" data-nav="praticar">Praticar</a>
+        <a href="desempenho.html" data-nav="progresso">Meu progresso</a>
+      </nav>
+      <div class="header-actions">
+        <div data-auth-area></div>
+      </div>
+      <button class="mobile-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menu">
+        <span data-icon="menu"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <div class="container auth-page">
+      <div class="auth-layout">
+        <aside class="auth-visual">
+          <a class="brand auth-visual__logo" href="index.html" aria-label="BlablablaAbel — página inicial">
+            <span class="brand-mark" aria-hidden="true">B</span>
+            <span class="brand-name">Blablabla<span>Abel</span></span>
+          </a>
+
+          <div class="auth-visual__content">
+            <span class="eyebrow"><span data-icon="sparkles"></span> Sua conta, seu progresso</span>
+            <h1>Estude no seu ritmo. <em>Leve o progresso com você.</em></h1>
+            <p>Com uma conta gratuita, suas aulas concluídas, acertos e sequência ficam sincronizados em qualquer aparelho.</p>
+            <div class="auth-benefits">
+              <div class="auth-benefit">
+                <span class="auth-benefit__icon"><span data-icon="chart"></span></span>
+                Acompanhe seu desempenho em cada matéria
+              </div>
+              <div class="auth-benefit">
+                <span class="auth-benefit__icon"><span data-icon="flame"></span></span>
+                Mantenha sua sequência de estudos
+              </div>
+              <div class="auth-benefit">
+                <span class="auth-benefit__icon"><span data-icon="medal"></span></span>
+                Participe do ranking semanal
+              </div>
+              <div class="auth-benefit">
+                <span class="auth-benefit__icon"><span data-icon="wifi-off"></span></span>
+                Continue funcionando offline no celular
+              </div>
+            </div>
+          </div>
+
+          <div class="auth-visual__footer">Seus dados são protegidos e usados apenas para salvar seu progresso.</div>
+        </aside>
+
+        <div class="auth-form-wrap">
+          <div class="auth-form" id="auth-form-container">
+            <h2 id="auth-main-heading">Entrar na sua conta</h2>
+            <p class="auth-form__sub" id="auth-main-sub">Continue de onde parou e mantenha seu progresso salvo.</p>
+
+            <div class="auth-tabs" id="auth-tabs" role="tablist" aria-label="Entrar ou criar conta">
+              <button class="auth-tab is-active" type="button" data-auth-tab="login" role="tab" aria-selected="true">Entrar</button>
+              <button class="auth-tab" type="button" data-auth-tab="signup" role="tab" aria-selected="false">Criar conta</button>
+            </div>
+
+            <div id="auth-setup" class="auth-setup" hidden>
+              <strong><span data-icon="info"></span> Supabase ainda não configurado</strong>
+              Execute <code>supabase/schema.sql</code> no seu projeto e preencha <code>js/config.js</code> com a URL e a chave anon. Enquanto isso, você pode estudar como visitante.
+            </div>
+
+            <div id="auth-message" role="status" aria-live="polite"></div>
+            <div id="auth-loading" hidden>
+              <div class="form-message form-message--info"><span data-icon="info"></span> Verificando sua sessão...</div>
+            </div>
+
+            <form id="login-form" novalidate>
+              <div class="form-field">
+                <label for="login-email">E-mail</label>
+                <input id="login-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="voce@email.com" required>
+              </div>
+              <div class="form-field">
+                <label for="login-password">Senha</label>
+                <div class="input-wrap">
+                  <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Sua senha" required minlength="6">
+                  <button class="input-action" type="button" data-toggle-password="login-password" aria-label="Mostrar senha">
+                    <span data-icon="eye"></span>
+                  </button>
+                </div>
+              </div>
+              <button class="forgot-link" type="button" id="forgot-password">Esqueci minha senha</button>
+              <button class="btn btn--block btn--lg" type="submit" id="login-submit">
+                <span class="btn__label">Entrar na conta</span>
+                <span data-icon="arrow-right"></span>
+              </button>
+              <div class="auth-divider">ou</div>
+              <p class="auth-alt"><a href="index.html">Continuar como visitante</a></p>
+              <p class="auth-alt" style="margin-top: 12px;">Ainda não tem conta? <a href="#" data-auth-tab-link="signup">Criar agora</a></p>
+            </form>
+
+            <form id="signup-form" hidden novalidate>
+              <div class="form-grid">
+                <div class="form-field form-field--full">
+                  <label for="signup-name">Seu nome</label>
+                  <input id="signup-name" name="name" type="text" autocomplete="name" placeholder="Como podemos chamar você?" required minlength="2">
+                </div>
+                <div class="form-field form-field--full">
+                  <label for="signup-email">E-mail</label>
+                  <input id="signup-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="voce@email.com" required>
+                </div>
+                <div class="form-field form-field--full">
+                  <label for="signup-level">Seu nível de estudo</label>
+                  <select id="signup-level" name="level">
+                    <option value="fundamental-1">Fundamental 1</option>
+                    <option value="fundamental-2" selected>Fundamental 2</option>
+                    <option value="ensino-medio">Ensino Médio</option>
+                    <option value="enem">ENEM</option>
+                    <option value="concurso">Concursos</option>
+                  </select>
+                </div>
+                <div class="form-field form-field--full">
+                  <label for="signup-password">Crie uma senha</label>
+                  <div class="input-wrap">
+                    <input id="signup-password" name="password" type="password" autocomplete="new-password" placeholder="Mínimo de 6 caracteres" required minlength="6">
+                    <button class="input-action" type="button" data-toggle-password="signup-password" aria-label="Mostrar senha">
+                      <span data-icon="eye"></span>
+                    </button>
+                  </div>
+                  <span class="form-hint">Use pelo menos 6 caracteres.</span>
+                </div>
+              </div>
+              <button class="btn btn--block btn--lg" type="submit" id="signup-submit">
+                <span class="btn__label">Criar minha conta</span>
+                <span data-icon="arrow-right"></span>
+              </button>
+              <p class="auth-alt" style="margin-top: 16px;">Já tem uma conta? <a href="#" data-auth-tab-link="login">Entrar</a></p>
+            </form>
+
+            <form id="reset-form" hidden novalidate>
+              <p class="auth-form__sub">Informe o e-mail da sua conta. Enviaremos um link para você criar uma nova senha.</p>
+              <div class="form-field">
+                <label for="reset-email">E-mail</label>
+                <input id="reset-email" type="email" inputmode="email" autocomplete="email" placeholder="voce@email.com" required>
+              </div>
+              <button class="btn btn--block" type="submit" id="reset-submit">
+                <span class="btn__label">Enviar link de redefinição</span>
+                <span data-icon="mail"></span>
+              </button>
+              <p class="auth-alt" style="margin-top: 14px;"><a href="#" id="back-to-login">Voltar para o login</a></p>
+            </form>
+
+            <form id="update-password-form" hidden novalidate>
+              <p class="auth-form__sub">Você acessou um link de recuperação. Escolha uma nova senha para sua conta.</p>
+              <div class="form-field">
+                <label for="new-password">Nova senha</label>
+                <div class="input-wrap">
+                  <input id="new-password" type="password" autocomplete="new-password" placeholder="Mínimo de 6 caracteres" required minlength="6">
+                  <button class="input-action" type="button" data-toggle-password="new-password" aria-label="Mostrar senha">
+                    <span data-icon="eye"></span>
+                  </button>
+                </div>
+              </div>
+              <button class="btn btn--block" type="submit" id="update-submit">
+                <span class="btn__label">Salvar nova senha</span>
+                <span data-icon="check"></span>
+              </button>
+            </form>
+
+            <div class="auth-logged" id="auth-logged" hidden>
+              <span class="auth-logged__avatar" id="logged-avatar">E</span>
+              <h3 id="logged-name">Estudante</h3>
+              <p id="logged-email"></p>
+              <a class="btn btn--block" href="desempenho.html"><span data-icon="chart"></span> Ir para meu progresso</a>
+              <button class="btn btn--outline btn--block" type="button" id="logout-auth" style="margin-top: 8px;">
+                <span data-icon="log-out"></span> Sair da conta
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="BlablablaAbel — página inicial">
+            <span class="brand-mark" aria-hidden="true">B</span>
+            <span class="brand-name">Blablabla<span>Abel</span></span>
+          </a>
+          <p>Reforço de Português e Matemática para aprender com clareza, praticar e evoluir no seu ritmo.</p>
+          <button class="btn btn--yellow btn--sm" type="button" data-install-app hidden>
+            <span data-icon="download"></span> Instalar aplicativo
+          </button>
+        </div>
+        <div>
+          <h2 class="footer-title">Estudar</h2>
+          <div class="footer-links">
+            <a href="estudar.html?nivel=fundamental-1">Fundamental 1</a>
+            <a href="estudar.html?nivel=fundamental-2">Fundamental 2</a>
+            <a href="estudar.html?nivel=ensino-medio">Ensino Médio</a>
+            <a href="estudar.html?nivel=enem">ENEM</a>
+            <a href="estudar.html?nivel=concurso">Concursos</a>
+          </div>
+        </div>
+        <div>
+          <h2 class="footer-title">Plataforma</h2>
+          <div class="footer-links">
+            <a href="praticar.html">Praticar</a>
+            <a href="desempenho.html">Meu progresso</a>
+            <a href="entrar.html">Entrar ou criar conta</a>
+            <a href="index.html#niveis">Escolher nível</a>
+          </div>
+        </div>
+        <div>
+          <h2 class="footer-title">Sobre</h2>
+          <div class="footer-links">
+            <span class="chip" style="width: fit-content;"><span data-icon="wifi-off"></span> Funciona offline</span>
+            <span class="chip" style="width: fit-content;"><span data-icon="lock"></span> Dados protegidos</span>
+            <span class="chip" style="width: fit-content;"><span data-icon="check-circle"></span> Acesso gratuito</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> BlablablaAbel. Feito para quem quer entender.</span>
+        <span><span data-icon="star"></span> Português + Matemática, lado a lado.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/vendor/supabase.js" defer></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/core.js" defer></script>
+  <script src="js/pwa.js" defer></script>
+  <script src="js/auth.js" defer></script>
+</body>
+</html>

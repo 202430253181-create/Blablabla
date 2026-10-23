@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula — BlablablaAbel</title>
+  <meta name="description" content="Aula curta de Português ou Matemática com exemplos e exercícios no BlablablaAbel.">
+  <meta name="theme-color" content="#082653">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="lesson">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="BlablablaAbel — página inicial">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span class="brand-name">Blablabla<span>Abel</span></span>
+      </a>
+      <nav class="main-nav" id="primary-nav" aria-label="Navegação principal">
+        <a href="index.html" data-nav="inicio">Início</a>
+        <a href="estudar.html" data-nav="conteudos">Conteúdos</a>
+        <a href="praticar.html" data-nav="praticar">Praticar</a>
+        <a href="desempenho.html" data-nav="progresso">Meu progresso</a>
+      </nav>
+      <div class="header-actions">
+        <div data-auth-area></div>
+      </div>
+      <button class="mobile-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menu">
+        <span data-icon="menu"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <div class="container lesson-page">
+      <nav class="breadcrumb" id="lesson-breadcrumb" aria-label="Você está aqui"></nav>
+      <div class="lesson-layout" id="lesson-layout">
+        <div class="lesson-main">
+          <header class="lesson-header" id="lesson-header">
+            <div class="lesson-header__meta" id="lesson-meta"></div>
+            <h1 id="lesson-title">Carregando aula...</h1>
+            <p id="lesson-description"></p>
+            <div class="lesson-meta-row" id="lesson-info"></div>
+          </header>
+
+          <div class="lesson-body" id="lesson-body"></div>
+
+          <nav class="lesson-nav" id="lesson-nav" aria-label="Outros temas desta trilha"></nav>
+        </div>
+
+        <aside class="lesson-sidebar">
+          <div class="side-card side-card--blue">
+            <span class="badge badge--yellow">Hora de praticar</span>
+            <h2 style="margin-top: 10px;">Fixe o que aprendeu</h2>
+            <p>Responda às questões deste tema e receba a correção com explicação na hora.</p>
+            <a class="btn btn--yellow" href="praticar.html" id="lesson-practice">
+              Fazer exercícios
+              <span data-icon="arrow-right"></span>
+            </a>
+            <div class="side-info" id="lesson-side-info"></div>
+          </div>
+
+          <div class="side-card">
+            <h3>Seu progresso</h3>
+            <p id="lesson-progress-text">Marque esta aula como concluída para acompanhar sua evolução.</p>
+            <button class="lesson-complete" type="button" id="complete-lesson">
+              <span data-icon="check-circle"></span>
+              <span id="complete-label">Marcar como concluída</span>
+            </button>
+          </div>
+
+          <div class="side-card">
+            <h3>Nesta trilha</h3>
+            <div id="lesson-siblings" style="display: flex; flex-direction: column; gap: 4px;"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="BlablablaAbel — página inicial">
+            <span class="brand-mark" aria-hidden="true">B</span>
+            <span class="brand-name">Blablabla<span>Abel</span></span>
+          </a>
+          <p>Reforço de Português e Matemática para aprender com clareza, praticar e evoluir no seu ritmo.</p>
+          <button class="btn btn--yellow btn--sm" type="button" data-install-app hidden>
+            <span data-icon="download"></span> Instalar aplicativo
+          </button>
+        </div>
+        <div>
+          <h2 class="footer-title">Estudar</h2>
+          <div class="footer-links">
+            <a href="estudar.html?nivel=fundamental-1">Fundamental 1</a>
+            <a href="estudar.html?nivel=fundamental-2">Fundamental 2</a>
+            <a href="estudar.html?nivel=ensino-medio">Ensino Médio</a>
+            <a href="estudar.html?nivel=enem">ENEM</a>
+            <a href="estudar.html?nivel=concurso">Concursos</a>
+          </div>
+        </div>
+        <div>
+          <h2 class="footer-title">Plataforma</h2>
+          <div class="footer-links">
+            <a href="praticar.html">Praticar</a>
+            <a href="desempenho.html">Meu progresso</a>
+            <a href="entrar.html">Entrar ou criar conta</a>
+            <a href="index.html#niveis">Escolher nível</a>
+          </div>
+        </div>
+        <div>
+          <h2 class="footer-title">Sobre</h2>
+          <div class="footer-links">
+            <span class="chip" style="width: fit-content;"><span data-icon="wifi-off"></span> Funciona offline</span>
+            <span class="chip" style="width: fit-content;"><span data-icon="lock"></span> Dados protegidos</span>
+            <span class="chip" style="width: fit-content;"><span data-icon="check-circle"></span> Acesso gratuito</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> BlablablaAbel. Feito para quem quer entender.</span>
+        <span><span data-icon="star"></span> Português + Matemática, lado a lado.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/vendor/supabase.js" defer></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/core.js" defer></script>
+  <script src="js/pwa.js" defer></script>
+  <script src="js/lesson.js" defer></script>
+</body>
+</html>

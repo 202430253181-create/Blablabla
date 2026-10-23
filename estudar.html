@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conteúdos — BlablablaAbel</title>
+  <meta name="description" content="Escolha seu nível e matéria para estudar Português e Matemática com aulas curtas, exemplos e exercícios.">
+  <meta name="theme-color" content="#082653">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="study">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="BlablablaAbel — página inicial">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span class="brand-name">Blablabla<span>Abel</span></span>
+      </a>
+      <nav class="main-nav" id="primary-nav" aria-label="Navegação principal">
+        <a href="index.html" data-nav="inicio">Início</a>
+        <a href="estudar.html" data-nav="conteudos">Conteúdos</a>
+        <a href="praticar.html" data-nav="praticar">Praticar</a>
+        <a href="desempenho.html" data-nav="progresso">Meu progresso</a>
+      </nav>
+      <div class="header-actions">
+        <div data-auth-area></div>
+      </div>
+      <button class="mobile-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menu">
+        <span data-icon="menu"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Você está aqui">
+          <a href="index.html"><span data-icon="home"></span> Início</a>
+          <span data-icon="chevron-right"></span>
+          <span>Conteúdos</span>
+        </nav>
+        <div class="page-hero__row">
+          <div>
+            <span class="eyebrow"><span data-icon="layers"></span> Biblioteca de trilhas</span>
+            <h1>Conteúdos para aprender de verdade</h1>
+            <p>Escolha o nível, a matéria e o tema. Cada trilha tem uma explicação curta e um treino com correção na hora.</p>
+          </div>
+          <div class="page-hero__actions">
+            <span class="chip"><span data-icon="book-open"></span> <span data-total-topics>30</span> temas</span>
+            <span class="chip chip--yellow"><span data-icon="list-checks"></span> <span data-total-questions>80</span> exercícios</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight" style="padding-top: 0;">
+      <div class="container">
+        <div class="study-toolbar" aria-label="Filtros de conteúdo">
+          <div class="filter-group">
+            <span class="filter-label">Nível de ensino</span>
+            <div class="level-pills" id="level-pills" role="group" aria-label="Filtrar por nível"></div>
+          </div>
+
+          <div class="filter-group">
+            <span class="filter-label">Matéria</span>
+            <div class="subject-tabs" id="subject-tabs" role="group" aria-label="Filtrar por matéria">
+              <button class="subject-tab is-active" type="button" data-subject="all">Todas</button>
+              <button class="subject-tab" type="button" data-subject="portugues">
+                <span data-icon="book-open"></span> Português
+              </button>
+              <button class="subject-tab" type="button" data-subject="matematica">
+                <span data-icon="calculator"></span> Matemática
+              </button>
+            </div>
+          </div>
+
+          <div class="filter-group filter-group--grow">
+            <label class="filter-label" for="topic-search">Buscar tema</label>
+            <div class="search-field">
+              <span data-icon="search"></span>
+              <input id="topic-search" type="search" placeholder="Ex.: frações, crase, funções..." autocomplete="off">
+            </div>
+          </div>
+        </div>
+
+        <div class="study-results">
+          <div class="results-head">
+            <h2 id="results-title">Todos os conteúdos</h2>
+            <span class="results-count" id="results-count" aria-live="polite"></span>
+          </div>
+
+          <div class="topic-grid" id="topic-grid"></div>
+
+          <div class="empty-state" id="empty-state" hidden>
+            <span class="empty-state__icon"><span data-icon="search"></span></span>
+            <h3>Nenhum tema encontrado</h3>
+            <p>Tente buscar por outra palavra ou remova os filtros para ver todos os conteúdos disponíveis.</p>
+            <button class="btn btn--outline" type="button" id="reset-filters">Limpar filtros</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="BlablablaAbel — página inicial">
+            <span class="brand-mark" aria-hidden="true">B</span>
+            <span class="brand-name">Blablabla<span>Abel</span></span>
+          </a>
+          <p>Reforço de Português e Matemática para aprender com clareza, praticar e evoluir no seu ritmo.</p>
+          <button class="btn btn--yellow btn--sm" type="button" data-install-app hidden>
+            <span data-icon="download"></span> Instalar aplicativo
+          </button>
+        </div>
+        <div>
+          <h2 class="footer-title">Estudar</h2>
+          <div class="footer-links">
+            <a href="estudar.html?nivel=fundamental-1">Fundamental 1</a>
+            <a href="estudar.html?nivel=fundamental-2">Fundamental 2</a>
+            <a href="estudar.html?nivel=ensino-medio">Ensino Médio</a>
+            <a href="estudar.html?nivel=enem">ENEM</a>
+            <a href="estudar.html?nivel=concurso">Concursos</a>
+          </div>
+        </div>
+        <div>
+          <h2 class="footer-title">Plataforma</h2>
+          <div class="footer-links">
+            <a href="praticar.html">Praticar</a>
+            <a href="desempenho.html">Meu progresso</a>
+            <a href="entrar.html">Entrar ou criar conta</a>
+            <a href="index.html#niveis">Escolher nível</a>
+          </div>
+        </div>
+        <div>
+          <h2 class="footer-title">Sobre</h2>
+          <div class="footer-links">
+            <span class="chip" style="width: fit-content;"><span data-icon="wifi-off"></span> Funciona offline</span>
+            <span class="chip" style="width: fit-content;"><span data-icon="lock"></span> Dados protegidos</span>
+            <span class="chip" style="width: fit-content;"><span data-icon="check-circle"></span> Acesso gratuito</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> BlablablaAbel. Feito para quem quer entender.</span>
+        <span><span data-icon="star"></span> Português + Matemática, lado a lado.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/vendor/supabase.js" defer></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/core.js" defer></script>
+  <script src="js/pwa.js" defer></script>
+  <script src="js/study.js" defer></script>
+</body>
+</html>

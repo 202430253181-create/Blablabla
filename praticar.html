@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Praticar — BlablablaAbel</title>
+  <meta name="description" content="Monte um treino de Português ou Matemática, responda às questões e receba correção com explicação na hora.">
+  <meta name="theme-color" content="#082653">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="practice">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="BlablablaAbel — página inicial">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span class="brand-name">Blablabla<span>Abel</span></span>
+      </a>
+      <nav class="main-nav" id="primary-nav" aria-label="Navegação principal">
+        <a href="index.html" data-nav="inicio">Início</a>
+        <a href="estudar.html" data-nav="conteudos">Conteúdos</a>
+        <a href="praticar.html" data-nav="praticar">Praticar</a>
+        <a href="desempenho.html" data-nav="progresso">Meu progresso</a>
+      </nav>
+      <div class="header-actions">
+        <div data-auth-area></div>
+      </div>
+      <button class="mobile-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menu">
+        <span data-icon="menu"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="page-hero" id="practice-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Você está aqui">
+          <a href="index.html"><span data-icon="home"></span> Início</a>
+          <span data-icon="chevron-right"></span>
+          <span>Praticar</span>
+        </nav>
+        <div class="page-hero__row">
+          <div>
+            <span class="eyebrow eyebrow--yellow"><span data-icon="zap"></span> Treino com correção</span>
+            <h1>Pratique no seu ritmo</h1>
+            <p>Monte um treino do seu jeito. A cada resposta, você recebe o resultado e uma explicação para entender o porquê.</p>
+          </div>
+          <div class="page-hero__actions">
+            <span class="chip"><span data-icon="check-circle"></span> Correção imediata</span>
+            <span class="chip"><span data-icon="chart"></span> Progresso salvo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="practice-page" id="practice-content">
+      <div class="container">
+        <div class="practice-layout" id="setup-view">
+          <form class="setup-card" id="setup-form" novalidate>
+            <div class="setup-step">
+              <div class="setup-step__head">
+                <span class="setup-step__number">1</span>
+                <h2>Qual é o seu nível?</h2>
+              </div>
+              <div class="option-grid" id="level-options" role="group" aria-label="Escolha o nível"></div>
+            </div>
+
+            <div class="setup-step">
+              <div class="setup-step__head">
+                <span class="setup-step__number">2</span>
+                <h2>Qual matéria você quer treinar?</h2>
+              </div>
+              <div class="subject-choice-grid" id="subject-options" role="group" aria-label="Escolha a matéria"></div>
+            </div>
+
+            <div class="setup-step">
+              <div class="setup-step__head">
+                <span class="setup-step__number">3</span>
+                <h2>Tema do treino</h2>
+              </div>
+              <div class="select-field">
+                <label class="sr-only" for="topic-select">Escolha um tema</label>
+                <select id="topic-select"></select>
+              </div>
+            </div>
+
+            <div class="setup-step">
+              <div class="setup-step__head">
+                <span class="setup-step__number">4</span>
+                <h2>Quantas questões?</h2>
+              </div>
+              <div class="quantity-grid" id="quantity-options" role="group" aria-label="Quantidade de questões"></div>
+            </div>
+
+            <div class="setup-footer">
+              <span class="setup-footer__hint" id="setup-hint">Você pode refazer o treino quando quiser.</span>
+              <button class="btn btn--lg" type="submit" data-start-quiz>
+                Começar treino
+                <span data-icon="play"></span>
+              </button>
+            </div>
+          </form>
+
+          <aside class="setup-summary" aria-label="Resumo do treino">
+            <div class="setup-summary__top">
+              <span>Seu treino</span>
+              <h2 id="summary-title">Fundamental 2 • Português</h2>
+              <p id="summary-description">Questões variadas para testar o que você já sabe.</p>
+            </div>
+            <div class="setup-summary__body">
+              <div class="summary-row"><span>Nível</span><strong id="summary-level">Fundamental 2</strong></div>
+              <div class="summary-row"><span>Matéria</span><strong id="summary-subject">Português</strong></div>
+              <div class="summary-row"><span>Tema</span><strong id="summary-topic">Todos</strong></div>
+              <div class="summary-row"><span>Questões</span><strong id="summary-count">5</strong></div>
+              <button class="btn btn--yellow btn--block" type="button" data-start-quiz>
+                <span data-icon="play"></span> Iniciar agora
+              </button>
+            </div>
+          </aside>
+        </div>
+
+        <div id="quiz-view" hidden>
+          <div class="quiz-shell">
+            <div class="quiz-topbar">
+              <button class="quiz-back" type="button" id="quit-quiz">
+                <span data-icon="arrow-left"></span> Sair do treino
+              </button>
+              <div class="quiz-topbar__meta" id="quiz-meta"></div>
+            </div>
+
+            <div class="quiz-progress">
+              <div class="quiz-progress__labels">
+                <span id="quiz-progress-label">Questão 1 de 5</span>
+                <strong id="quiz-progress-percent">0%</strong>
+              </div>
+              <div class="progress-track" role="progressbar" aria-label="Progresso do treino" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="quiz-progress-bar">
+                <div class="progress-track__bar" id="quiz-progress-fill" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <div class="quiz-card">
+              <span class="quiz-question__tag" id="quiz-topic-tag"></span>
+              <h1 class="quiz-question" id="quiz-question"></h1>
+              <div class="answers" id="quiz-answers"></div>
+              <div id="quiz-feedback" aria-live="polite"></div>
+              <p class="keyboard-hint">Dica: use as teclas 1, 2, 3 e 4 para responder.</p>
+            </div>
+
+            <div class="quiz-footer">
+              <span class="quiz-score" id="quiz-score"></span>
+              <button class="btn" type="button" id="quiz-next" hidden>
+                Próxima questão
+                <span data-icon="arrow-right"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="result-view" hidden></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="BlablablaAbel — página inicial">
+            <span class="brand-mark" aria-hidden="true">B</span>
+            <span class="brand-name">Blablabla<span>Abel</span></span>
+          </a>
+          <p>Reforço de Português e Matemática para aprender com clareza, praticar e evoluir no seu ritmo.</p>
+          <button class="btn btn--yellow btn--sm" type="button" data-install-app hidden>
+            <span data-icon="download"></span> Instalar aplicativo
+          </button>
+        </div>
+        <div>
+          <h2 class="footer-title">Estudar</h2>
+          <div class="footer-links">
+            <a href="estudar.html?nivel=fundamental-1">Fundamental 1</a>
+            <a href="estudar.html?nivel=fundamental-2">Fundamental 2</a>
+            <a href="estudar.html?nivel=ensino-medio">Ensino Médio</a>
+            <a href="estudar.html?nivel=enem">ENEM</a>
+            <a href="estudar.html?nivel=concurso">Concursos</a>
+          </div>
+        </div>
+        <div>
+          <h2 class="footer-title">Plataforma</h2>
+          <div class="footer-links">
+            <a href="praticar.html">Praticar</a>
+            <a href="desempenho.html">Meu progresso</a>
+            <a href="entrar.html">Entrar ou criar conta</a>
+            <a href="index.html#niveis">Escolher nível</a>
+          </div>
+        </div>
+        <div>
+          <h2 class="footer-title">Sobre</h2>
+          <div class="footer-links">
+            <span class="chip" style="width: fit-content;"><span data-icon="wifi-off"></span> Funciona offline</span>
+            <span class="chip" style="width: fit-content;"><span data-icon="lock"></span> Dados protegidos</span>
+            <span class="chip" style="width: fit-content;"><span data-icon="check-circle"></span> Acesso gratuito</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> BlablablaAbel. Feito para quem quer entender.</span>
+        <span><span data-icon="star"></span> Português + Matemática, lado a lado.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/vendor/supabase.js" defer></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/core.js" defer></script>
+  <script src="js/pwa.js" defer></script>
+  <script src="js/quiz.js" defer></script>
+</body>
+</html>
